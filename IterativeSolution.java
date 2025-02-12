@@ -11,17 +11,15 @@ r = z;
 public List<Integer> IterativeSolution(TreeNode root) {
 List<Integer> res = new ArrayList<>();
 Stack<TreeNode> stack = new Stack<>();
+while(root!=null || !stack.isEmpty()){
+while(root!=null) {
 stack.push(root);
-while(!stack.isEmpty()){
+root = root.l;
+}
 root = stack.pop();
 res.add(root.val);
-if(root.r!=null) {
-stack.push(root.r);
+root = root.r;
 }
-if(root.l!=null) {
-stack.push(root.l);
-}
-
-}return res;
+return res;
 }
 }
